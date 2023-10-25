@@ -19,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/Films" element={<Films />} />
         <Route path="/Series" element={<Series />} />
         <Route path="/Artistes" element={<Artistes />} />
+        <Route path="/search" element={<Films />} />
       </Routes>
     </Router>
   </React.StrictMode>,

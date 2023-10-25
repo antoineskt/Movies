@@ -1,9 +1,12 @@
+import Trending from './components/Trending';
+import Welcome from './components/Welcome';
+
 function App() {
   return (
-    <>
-      <h1 className="text-3xl ">Bienvenue, </h1>
-      <h1 className="text-2xl ">Des millions de films, émissions télévisées et artistes...</h1>
-    </>
+    <div className="ml-10">
+      <Welcome />
+      <Trending />
+    </div>
   );
 }
 
