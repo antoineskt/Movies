@@ -23,7 +23,6 @@ export default function Search() {
   };
   return (
     <div>
-      <div>Résultats de votre recherche</div>
       <div className="relative  bg-cover opacity-100" style={{ backgroundImage: `url(${moviesHome})` }}>
         <div className=" m-5 p-5 ">
           <h1 className="text-4xl text-white font-bold">Bienvenue, </h1>
@@ -33,7 +32,7 @@ export default function Search() {
           <form onSubmit={handleSearch}>
             <label aria-label="Rechercher un film, serie, artiste">
               <input
-                className="bg-white  rounded-3xl px-4 py-2 ml-10 mb-10 w-4/5"
+                className="bg-white  rounded-3xl px-4 py-2 ml-10 mb-10 w-4/5 "
                 type="text"
                 placeholder="Rechercher un film, une émission télévisée, un artiste..."
                 id="search"
@@ -47,30 +46,34 @@ export default function Search() {
           </form>
         </div>
       </div>
-      {content &&
-        content.map((Val) => {
-          const { name, title, poster_path, first_air_date, release_date, media_type, id, overview } = Val;
-          return (
-            <>
-              <div className="col-md-3 col-sm-4 py-3" id="card" key={id}>
-                <div className="card bg-dark" key={id}>
-                  <img
-                    src={poster_path ? `${img_300}/${poster_path}` : unavailable}
-                    className="card-img-top pt-3 pb-0 px-3"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title text-center fs-5">{title || name}</h5>
-                    <div className="d-flex fs-6 align-items-center justify-content-evenly movie">
-                      <div>{media_type === 'tv' ? 'TV' : 'Movie'}</div>
+      <div className="flex flex-row">
+        <div className="m-10 font-bold">Résultats de votre recherche</div>
+        <div className="">
+          {content &&
+            content.map((Val) => {
+              const { name, title, poster_path, first_air_date, release_date, media_type, id, overview } = Val;
+              return (
+                <div className="flex flex-row  border border-gray-300 rounded-lg m-10" key={id}>
+                  <div className="w-[150px] h-[225px] min-w-[150px] overflow-hidden rounded-lg mr-5">
+                    <img
+                      src={poster_path ? `${img_300}/${poster_path}` : unavailable}
+                      alt={title}
+                      className=" w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <div className="">
+                    <h5 className="font-bold">{title || name}</h5>
+                    <div className="text-gray-500 mb-5">
                       <div>{first_air_date || release_date}</div>
                     </div>
                     <div>{overview}</div>
                   </div>
                 </div>
-              </div>
-            </>
-          );
-        })}
+              );
+            })}
+        </div>
+      </div>
     </div>
   );
 }
