@@ -24,11 +24,12 @@ export default function Welcome() {
       </div>
       <div className="relative">
         <form action="/search" method="get">
-          <label>
+          <label aria-label="Rechercher un film, serie, artiste" htmlFor="search">
             <input
               className="bg-white  rounded-3xl px-4 py-2 ml-10 mb-10 w-4/5"
               type="text"
               placeholder="Rechercher un film, une émission télévisée, un artiste..."
+              id="search"
             />
           </label>
           <input className="bg-[#EFBF48] rounded-3xl px-4 py-2 " type="submit" value="Rechercher" />

@@ -8,6 +8,7 @@ import Films from './pages/films.tsx';
 import { Header } from './components/Header.tsx';
 import Artistes from './pages/artistes.tsx';
 import Series from './pages/series.tsx';
+import Search from './pages/search.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -19,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/Films" element={<Films />} />
         <Route path="/Series" element={<Series />} />
         <Route path="/Artistes" element={<Artistes />} />
-        <Route path="/search" element={<Films />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   </React.StrictMode>,
