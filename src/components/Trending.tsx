@@ -2,8 +2,10 @@ import { img_300, unavailable } from './config';
 import { useEffect, useState } from 'react';
 import { Media_typeType, FetchTime_window } from '../type/type';
 import ButtonTrend from '../components/ButtonTrend';
-
+import CardImgMovies from './Caroussel/CardImgMovies';
 import { useGetTrendingQuery } from '../features/movies/trendingApi';
+import TitleTrend from './TitleTrend';
+import DateTrend from './DateTrend';
 
 type Props = {
   title: string;
@@ -31,18 +33,10 @@ export default function Trending({ title, mediaType }: Props) {
           const { name, title, poster_path, first_air_date, release_date, id } = Val;
           return (
             <div key={id} id="card" className="mr-5">
-              <div className="w-[150px] h-[225px] overflow-hidden rounded-lg mb-5">
-                <img
-                  src={poster_path ? `${img_300}/${poster_path}` : unavailable}
-                  className=" w-full h-full object-cover "
-                  alt={title}
-                />
-              </div>
+              <CardImgMovies poster_path={poster_path} title={title} />
               <div>
-                <h5 className="font-bold ">{title || name}</h5>
-                <div>
-                  <div className="text-gray-500">{first_air_date || release_date}</div>
-                </div>
+                <TitleTrend name={name} title={title} />
+                <DateTrend first_air_date={first_air_date} release_date={release_date} />
               </div>
             </div>
           );
