@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="ml-10">
       <Welcome />
-      <Trending />
+      <Trending title="Films du moment" mediaType="movie" />
     </div>
   );
 }
