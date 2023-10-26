@@ -2,10 +2,11 @@ import { img_300, unavailable } from './config';
 import { useEffect, useState } from 'react';
 import { Media_typeType, FetchTime_window } from '../type/type';
 import ButtonTrend from '../components/ButtonTrend';
-import CardImgMovies from './Caroussel/CardImgMovies';
+import CardImgMovies from './Carousel/CardImgMovies';
 import { useGetTrendingQuery } from '../features/movies/trendingApi';
-import TitleTrend from './TitleTrend';
-import DateTrend from './DateTrend';
+import Carousel from './Carousel/Carousel';
+import CardCarousel from './Carousel/CardCarousel';
+import formatDate from '../utils/formatDate';
 
 type Props = {
   title: string;
@@ -28,20 +29,22 @@ export default function Trending({ title, mediaType }: Props) {
       <h1 className="mb-5 mt-5 font-bold text-xl">Tendances</h1>
       <ButtonTrend label="day" value={date} title="Aujourd'hui" handleClick={switchDateDay} />
       <ButtonTrend label="week" value={date} title="Cette semaine" handleClick={switchDateWeek} />
-      <div className="flex flex-row ">
-        {data?.results.map((Val) => {
-          const { name, title, poster_path, first_air_date, release_date, id } = Val;
-          return (
-            <div key={id} id="card" className="mr-5">
-              <CardImgMovies poster_path={poster_path} title={title} />
-              <div>
-                <TitleTrend name={name} title={title} />
-                <DateTrend first_air_date={first_air_date} release_date={release_date} />
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <Carousel>
+        {data?.results.map((card) => (
+          <CardCarousel
+            imageNotFoundNumber={10}
+            key={card.id}
+            mediaType={mediaType}
+            id={card.id}
+            titleMedia={title}
+            rate={card.vote_average}
+            title={card.title || card.name}
+            subtitle={formatDate(card.release_date || card.first_air_date)}
+            poster_path={card.poster_path}
+            circlePresence={true}
+          />
+        ))}
+      </Carousel>
     </div>
   );
 }
