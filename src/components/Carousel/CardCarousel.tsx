@@ -2,6 +2,8 @@ import TitleTrend from './TitleTrend';
 import DateTrend from './DateTrend';
 import CardImgMovies from './CardImgMovies';
 import { Media_typeType } from '../../type/type';
+import LinkPage from '../Router/LinkPage';
+import { formatTitleUrl } from '../../utils/formatTitleUrl';
 
 type CardProps = {
   mediaType: Media_typeType;
@@ -28,12 +30,14 @@ export default function CardCarousel({
   borderCard = false,
 }: CardProps) {
   return (
-    <div key={id} id="card" className="mr-5">
-      <CardImgMovies poster_path={poster_path} title={title} />
-      <div>
-        <TitleTrend title={title} />
-        <DateTrend subtitle={subtitle} />
+    <LinkPage mediaType={mediaType} id={id.toString()} titleMedia={formatTitleUrl(title)}>
+      <div key={id} id="card" className="mr-5">
+        <CardImgMovies poster_path={poster_path} title={title} />
+        <div>
+          <TitleTrend title={title} />
+          <DateTrend subtitle={subtitle} />
+        </div>
       </div>
-    </div>
+    </LinkPage>
   );
 }

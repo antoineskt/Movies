@@ -4,9 +4,10 @@ import App from './App.tsx';
 import './index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Error from './components/Error.tsx';
-import Films from './pages/films.tsx';
+
 import { Header } from './components/Header.tsx';
-import Artistes from './pages/artistes.tsx';
+import Artists from './pages/artists';
+import Movies from './pages/movies.tsx';
 import Series from './pages/series.tsx';
 import Search from './pages/search.tsx';
 import { store } from './app/store.tsx';
@@ -20,9 +21,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="*" element={<Error />} />
-          <Route path="/Films" element={<Films />} />
+          <Route path="/Films" element={<Movies />} />
           <Route path="/Series" element={<Series />} />
-          <Route path="/Artistes" element={<Artistes />} />
+          <Route path="/Artistes" element={<Artists />} />
+          <Route path="/movie/:id/:titleMedia" element={<Movies />} />
+          <Route path="/tv/:id/:titleMedia?" element={<Series />} />
+          <Route path="/person/:id/:titleMedia?" element={<Artists />} />
 
           <Route path="search/:query" element={<Search />}></Route>
         </Routes>
