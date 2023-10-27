@@ -26,7 +26,7 @@ export default function Trending({ title, mediaType }: Props) {
   return (
     <section className="mt-8 mb-8 ml-8">
       <div className="flex flex-row mb-5">
-        <h1 className=" font-bold text-2xl mr-3">Tendances</h1>
+        <h1 className=" font-bold text-2xl mr-3">{title}</h1>
         <div className="flex flex-row border border-black rounded-2xl overflow-hidden ">
           <ButtonTrend label="day" value={date} title="Aujourd'hui" handleClick={switchDateDay} />
           <ButtonTrend label="week" value={date} title="Cette semaine" handleClick={switchDateWeek} />
