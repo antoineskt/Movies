@@ -24,11 +24,15 @@ export default function Trending({ title, mediaType }: Props) {
   const switchDateWeek = () => setDate('week');
 
   return (
-    <div>
-      <button value={date}></button>
-      <h1 className="mb-5 mt-5 font-bold text-xl">Tendances</h1>
-      <ButtonTrend label="day" value={date} title="Aujourd'hui" handleClick={switchDateDay} />
-      <ButtonTrend label="week" value={date} title="Cette semaine" handleClick={switchDateWeek} />
+    <section className="mt-8 mb-8 ml-8">
+      <div className="flex flex-row mb-5">
+        <h1 className=" font-bold text-2xl mr-3">Tendances</h1>
+        <div className="flex flex-row border border-black rounded-2xl overflow-hidden ">
+          <ButtonTrend label="day" value={date} title="Aujourd'hui" handleClick={switchDateDay} />
+          <ButtonTrend label="week" value={date} title="Cette semaine" handleClick={switchDateWeek} />
+        </div>
+      </div>
+
       <Carousel>
         {data?.results.map((card) => (
           <CardCarousel
@@ -45,6 +49,6 @@ export default function Trending({ title, mediaType }: Props) {
           />
         ))}
       </Carousel>
-    </div>
+    </section>
   );
 }

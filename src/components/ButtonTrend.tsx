@@ -6,10 +6,11 @@ type Props = {
 };
 
 function ButtonTrend({ title, handleClick, value, label }: Props) {
-  const textColor = value === label ? ' gradientText font-semibold' : '';
+  const textColor = label === 'day' ? ' gradientText font-semibold' : '';
+  const bgColor = label === 'day' ? '' : 'bg-[#ECC943]';
   return (
     <button
-      className={`lg:w-[150px] w-full  flex items-center justify-center  transition-colors text-xl ${textColor} z-20 
+      className={`lg:w-[150px] w-full  flex items-center justify-center  transition-colors text-xl ${textColor} z-20 ${bgColor}
        `}
       onClick={handleClick}
     >
