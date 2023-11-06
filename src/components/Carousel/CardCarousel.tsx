@@ -18,17 +18,7 @@ type CardProps = {
   borderCard?: boolean;
 };
 
-export default function CardCarousel({
-  mediaType,
-  id,
-  circlePresence = false,
-  rate = 0,
-  title,
-  subtitle,
-  poster_path,
-  imageNotFoundNumber,
-  borderCard = false,
-}: CardProps) {
+export default function CardCarousel({ mediaType, id, title, subtitle, poster_path }: CardProps) {
   return (
     <LinkPage mediaType={mediaType} id={id.toString()} titleMedia={formatTitleUrl(title)}>
       <div key={id} id="card" className="mr-5">

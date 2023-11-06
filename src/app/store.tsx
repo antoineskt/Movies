@@ -1,13 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { trendingApi } from '../features/movies/trendingApi';
 import { multiSliceAPi } from '../features/movies/multiSlice';
+import { movieSlice } from '../features/movies/movieSlice';
 
 export const store = configureStore({
   reducer: {
     [trendingApi.reducerPath]: trendingApi.reducer,
     [multiSliceAPi.reducerPath]: multiSliceAPi.reducer,
+    [movieSlice.reducerPath]: movieSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(trendingApi.middleware, multiSliceAPi.middleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(trendingApi.middleware, multiSliceAPi.middleware, movieSlice.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

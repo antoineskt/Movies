@@ -5,7 +5,7 @@ type Props = {
   label: string;
 };
 
-function ButtonTrend({ title, handleClick, value, label }: Props) {
+function ButtonTrend({ title, handleClick, label }: Props) {
   const textColor = label === 'day' ? ' gradientText font-semibold' : '';
   const bgColor = label === 'day' ? '' : 'bg-[#ECC943]';
   return (
