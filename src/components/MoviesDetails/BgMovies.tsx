@@ -34,15 +34,17 @@ export default function BgMovies({ data }: Props) {
         {' '}
         <div className=" w-full flex max-w-screen-xl mx-auto p-8 gap-8 h-full">
           <img src={getPosterPathImage(poster_path)} alt="Poster du film" />
-          <div>
+          <div className="flex flex-col ">
             <div className="text-3xl">{title}</div>
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-row gap-5 mb-3">
               {' '}
               <div>{release_date}</div>
               {genres.length >= 1 && <GenreDetail allGenders={genres} />}
               <LengthMediaDetail lengthMedia={runtime} />
             </div>
             <CircularButton rate={vote_average} />
+            <div className="mt-3 mb-3 italic text-gray-500">{tagline}</div>
+            <div className="text-2xl mb-2 ">Synopsis</div>
             <div>{overview}</div>
           </div>
         </div>
