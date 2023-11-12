@@ -11,16 +11,16 @@ type Props = {
 export default function AdditionnalInfos({ id, originalTitle, status, originalLanguage, revenu, budget }: Props) {
   return (
     <div>
-      <div>
-        <div>Titre d'origine</div>
+      <div className="mt-5 ml-10">
+        <div className="font-bold">Titre d'origine</div>
         <div>{originalTitle}</div>
-        <div>Statut</div>
+        <div className="font-bold mt-3">Statut</div>
         <div>{status}</div>
-        <div>Budget</div>
+        <div className="font-bold mt-3">Budget</div>
         <div>{budget}</div>
-        <div>Recette</div>
+        <div className="font-bold mt-3">Recette</div>
         <div>{revenu}</div>
-        <div>Langue d'origine</div>
+        <div className="font-bold mt-3">Langue d'origine</div>
         <div>{originalLanguage}</div>
       </div>
     </div>
