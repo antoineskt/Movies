@@ -1,3 +1,9 @@
+import Trending from '../components/Trending';
+
 export default function Series() {
-  return <div>Séries</div>;
+  return (
+    <div>
+      <Trending title="Séries du moment" mediaType="tv" />
+    </div>
+  );
 }

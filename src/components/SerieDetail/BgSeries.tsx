@@ -1,15 +1,14 @@
-import { MovieDetailType } from '../../type/Movie';
 import { TvDetailType } from '../../type/Tv';
 import { getPosterPathImage } from '../config';
-import GenreDetail from './GenreDetail';
-import LengthMediaDetail from './LengthMediaDetail';
+import GenreDetail from '../MoviesDetails/GenreDetail';
+
 import CircularButton from '../CircularButton';
 type Props = {
-  data: MovieDetailType;
+  data: TvDetailType;
 };
 
-export default function BgMovies({ data }: Props) {
-  const { backdrop_path, title, poster_path, release_date, genres, runtime, vote_average, tagline, overview } = data;
+export default function BgSerie({ data }: Props) {
+  const { backdrop_path, name, poster_path, first_air_date, genres, vote_average, tagline, overview } = data;
 
   const BASE_URL_IMAGE = 'https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces';
 
@@ -36,12 +35,11 @@ export default function BgMovies({ data }: Props) {
         <div className=" w-full flex max-w-screen-xl mx-auto p-8 gap-8 h-full">
           <img src={getPosterPathImage(poster_path)} alt="Poster du film" />
           <div className="flex flex-col ">
-            <div className="text-3xl">{title}</div>
+            <div className="text-3xl">{name}</div>
             <div className="flex flex-row gap-5 mb-3">
               {' '}
-              <div>{release_date}</div>
+              <div>{first_air_date}</div>
               {genres.length >= 1 && <GenreDetail allGenders={genres} />}
-              <LengthMediaDetail lengthMedia={runtime} />
             </div>
             <CircularButton rate={vote_average} />
             <div className="mt-3 mb-3 italic text-gray-500">{tagline}</div>
